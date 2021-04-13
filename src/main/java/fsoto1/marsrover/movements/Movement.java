@@ -1,6 +1,5 @@
 package fsoto1.marsrover.movements;
 
-import fsoto1.marsrover.models.LimitModel;
 import fsoto1.marsrover.models.RoverModel;
 
 /**
@@ -13,10 +12,9 @@ public interface Movement {
 	 * This method move the rover N times to the north
 	 * without passing the Y boundary
 	 * @param rover the roverModel
-	 * @param limit boundary of the plateau
 	 * @param movements numbers of time to move
 	 */
-	public void goNorth(RoverModel rover, LimitModel limit, int movements);
+	public void goNorth(RoverModel rover);
 	
 	/**
 	 * This method move the rover N times to the south
@@ -24,16 +22,15 @@ public interface Movement {
 	 * @param rover the roverModel
 	 * @param movements numbers of time to move
 	 */
-	public void goSouth(RoverModel rover, int movements);
+	public void goSouth(RoverModel rover);
 	
 	/**
 	 * This method move the rover N times to the east
 	 * without passing the X boundary
 	 * @param rover the roverModel
-	 * @param limit boundary of the plateau
 	 * @param movements numbers of time to move
 	 */
-	public void goEast(RoverModel rover, LimitModel limit, int movements);
+	public void goEast(RoverModel rover);
 	
 	/**
 	 * This method move the rover N times to the west
@@ -41,5 +38,5 @@ public interface Movement {
 	 * @param rover the roverModel
 	 * @param movements numbers of time to move
 	 */
-	public void goWest(RoverModel rover, int movements);
+	public void goWest(RoverModel rover);
 }

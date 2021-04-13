@@ -7,15 +7,17 @@ public class RoverModel {
 	private int xPosition;
 	private int yPosition;
 	private CardinalDirection direction;
+	private LimitModel limit;
 	
 	public RoverModel() {
 		super();
 	}
-	public RoverModel(int xPosition, int yPosition, CardinalDirection direction) {
+	public RoverModel(int xPosition, int yPosition, CardinalDirection direction, LimitModel limit) {
 		super();
 		this.xPosition = xPosition;
 		this.yPosition = yPosition;
 		this.direction = direction;
+		this.limit = limit;
 	}
 	public int getxPosition() {
 		return xPosition;
@@ -34,6 +36,12 @@ public class RoverModel {
 	}
 	public void setDirection(CardinalDirection direction) {
 		this.direction = direction;
+	}	
+	public LimitModel getLimit() {
+		return limit;
+	}
+	public void setLimit(LimitModel limit) {
+		this.limit = limit;
 	}
 	@Override
 	public String toString() {

@@ -5,9 +5,9 @@ package fsoto1.marsrover.enums;
  * @author fsoto1
  */
 public enum RoverInputMovement {
-	Left("L"),
-	Right("R"),
-	Move("M");
+	LEFT("L"),
+	RIGHT("R"),
+	MOVE("M");
 	
 	public final  String label;
 	

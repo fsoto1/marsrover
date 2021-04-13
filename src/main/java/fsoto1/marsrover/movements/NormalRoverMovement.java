@@ -1,8 +1,5 @@
 package fsoto1.marsrover.movements;
 
-import java.security.InvalidParameterException;
-
-import fsoto1.marsrover.models.LimitModel;
 import fsoto1.marsrover.models.RoverModel;
 
 /**
@@ -13,23 +10,23 @@ import fsoto1.marsrover.models.RoverModel;
 public class NormalRoverMovement implements RoverMovement{
 
 	@Override
-	public void move(RoverModel rover, LimitModel limit, int movements) {
+	public void move(RoverModel rover) {
 		Movement movement = new NormalMovement();
 		switch (rover.getDirection()){
-		case North:
-			movement.goNorth(rover, limit, movements);
+		case NORTH:
+			movement.goNorth(rover);
 			break;
-		case South:
-			movement.goSouth(rover, movements);
+		case SOUTH:
+			movement.goSouth(rover);
 			break;
-		case East:
-			movement.goEast(rover, limit, movements);
+		case EAST:
+			movement.goEast(rover);
 			break;
-		case West:
-			movement.goWest(rover, movements);
+		case WEST:
+			movement.goWest(rover);
 			break;
 		default:
-			throw new InvalidParameterException("Invalid cardinal direction");
+			throw new IllegalArgumentException("Invalid cardinal direction");
 		}
 	}
 }

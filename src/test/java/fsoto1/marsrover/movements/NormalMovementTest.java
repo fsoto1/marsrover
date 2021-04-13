@@ -1,55 +1,53 @@
 package fsoto1.marsrover.movements;
 
 import static org.junit.Assert.assertEquals;
-
 import org.junit.Before;
 import org.junit.Test;
-
 import fsoto1.marsrover.enums.CardinalDirection;
 import fsoto1.marsrover.models.LimitModel;
 import fsoto1.marsrover.models.RoverModel;
 
 public class NormalMovementTest {
 
-	private Movement roverMovement;
-	private LimitModel limitModel;
+	private Movement normalMovement;
+	private RoverModel rover;
 	
 	@Before
 	public void setUp() throws Exception {
-		roverMovement = new NormalMovement();
-		limitModel = new LimitModel(5, 5);
+		normalMovement = new NormalMovement();
+		rover = new RoverModel(2,2,CardinalDirection.NORTH,new LimitModel(5,5));
 	}
 
 	@Test
 	public void testGoNorth() {
-		RoverModel roverModel = new RoverModel(1, 2, CardinalDirection.North);
-		roverMovement.goNorth(roverModel, limitModel, 1);
-		assertEquals("Go North in X=1", 1, roverModel.getxPosition());
-		assertEquals("Go North in Y=2", 3, roverModel.getyPosition());
+		RoverModel roverTest = rover;
+		normalMovement.goNorth(roverTest);
+		assertEquals("Move to the NORTH X", rover.getxPosition(), 2);
+		assertEquals("Move to the NORTH Y", rover.getyPosition(), 3);
 	}
 
 	@Test
 	public void testGoSouth() {
-		RoverModel roverModel = new RoverModel(1, 2, CardinalDirection.South);
-		roverMovement.goSouth(roverModel, 1);
-		assertEquals("Go South in X=1", 1, roverModel.getxPosition());
-		assertEquals("Go South in Y=2", 1, roverModel.getyPosition());
+		RoverModel roverTest = rover;
+		normalMovement.goSouth(roverTest);
+		assertEquals("Move to the SOUTH X", rover.getxPosition(), 2);
+		assertEquals("Move to the SOUTH Y", rover.getyPosition(), 1);
 	}
 
 	@Test
 	public void testGoEast() {
-		RoverModel roverModel = new RoverModel(1, 2, CardinalDirection.East);
-		roverMovement.goEast(roverModel, limitModel, 1);
-		assertEquals("Go East in X=1", 2, roverModel.getxPosition());
-		assertEquals("Go East in Y=2", 2, roverModel.getyPosition());
+		RoverModel roverTest = rover;
+		normalMovement.goEast(roverTest);
+		assertEquals("Move to the EAST X", rover.getxPosition(), 3);
+		assertEquals("Move to the EAST Y", rover.getyPosition(), 2);
 	}
 
 	@Test
 	public void testGoWest() {
-		RoverModel roverModel = new RoverModel(1, 2, CardinalDirection.West);
-		roverMovement.goWest(roverModel, 1);
-		assertEquals("Go West in X=1", 0, roverModel.getxPosition());
-		assertEquals("Go West in Y=2", 2, roverModel.getyPosition());
+		RoverModel roverTest = rover;
+		normalMovement.goWest(roverTest);
+		assertEquals("Move to the WEST X", rover.getxPosition(), 1);
+		assertEquals("Move to the WEST Y", rover.getyPosition(), 2);
 	}
 
 }

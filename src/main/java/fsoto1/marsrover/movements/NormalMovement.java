@@ -1,6 +1,5 @@
 package fsoto1.marsrover.movements;
 
-import fsoto1.marsrover.models.LimitModel;
 import fsoto1.marsrover.models.RoverModel;
 
 /**
@@ -10,29 +9,31 @@ import fsoto1.marsrover.models.RoverModel;
  *
  */
 public class NormalMovement implements Movement {
+	
+	public static final int DEFAULT_ROVER_MOVEMENT = 1;
 
 	@Override
-	public void goNorth(RoverModel rover, LimitModel limit, int movements) {
-		if(limit.getyLimit() >= rover.getyPosition() + movements)
-			rover.setyPosition(rover.getyPosition() + movements);
+	public void goNorth(RoverModel rover) {
+		if(rover.getLimit().getyLimit() >= rover.getyPosition() + DEFAULT_ROVER_MOVEMENT)
+			rover.setyPosition(rover.getyPosition() + DEFAULT_ROVER_MOVEMENT);
 	}
 
 	@Override
-	public void goSouth(RoverModel rover, int movements) {
-		if(0 <= rover.getyPosition() - movements)
-			rover.setyPosition(rover.getyPosition() - movements);
+	public void goSouth(RoverModel rover) {
+		if(0 <= rover.getyPosition() - DEFAULT_ROVER_MOVEMENT)
+			rover.setyPosition(rover.getyPosition() - DEFAULT_ROVER_MOVEMENT);
 	}
 
 	@Override
-	public void goEast(RoverModel rover, LimitModel limit, int movements) {
-		if(limit.getxLimit() >= rover.getxPosition() + movements)
-			rover.setxPosition(rover.getxPosition() + movements);
+	public void goEast(RoverModel rover) {
+		if(rover.getLimit().getxLimit() >= rover.getxPosition() + DEFAULT_ROVER_MOVEMENT)
+			rover.setxPosition(rover.getxPosition() + DEFAULT_ROVER_MOVEMENT);
 	}
 
 	@Override
-	public void goWest(RoverModel rover, int movements) {
-		if(0 <= rover.getxPosition() - movements)
-			rover.setxPosition(rover.getxPosition() - movements);
+	public void goWest(RoverModel rover) {
+		if(0 <= rover.getxPosition() - DEFAULT_ROVER_MOVEMENT)
+			rover.setxPosition(rover.getxPosition() - DEFAULT_ROVER_MOVEMENT);
 	}
 
 }
